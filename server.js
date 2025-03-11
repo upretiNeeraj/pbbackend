@@ -4,7 +4,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 10000;
 
 // Middleware
 app.use(cors({
@@ -19,6 +19,11 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL_USER, // Your email
         pass: process.env.EMAIL_PASS, // Your email password or App Password
     },
+});
+
+
+app.get('/',(req,res)=>{
+    res.send("welcome guru")
 });
 
 // Handle Contact Form Submission
